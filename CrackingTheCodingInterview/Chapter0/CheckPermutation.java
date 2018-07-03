@@ -12,9 +12,6 @@ public class CheckPermutation {
     }
 
     public boolean permutates(String word, String secondWord) {
-        if(word.length() != secondWord.length()) {
-            return false;
-        }
         return sortString(word).equals(sortString(secondWord));
     }
 
