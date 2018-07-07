@@ -1,27 +1,32 @@
+import java.util.Set;
+import java.util.HashSet;
 class LongestSubString {
+    public static void main(String[] args) {
+        String test = "AU";
+        String test1 = "ABCABCBB";
+        LongestSubString lss = new LongestSubString();
+        System.out.println(lss.lengthOfLongestSubstring(test));
+        System.out.println(lss.lengthOfLongestSubstring(test1));
+    }
     public int lengthOfLongestSubstring(String s) {
-        int longest = 0;
-        if (s.length() == 1) {
-            return 1;
-        }
-        for (int i = 0; i < s.length(); i++) {
-            for (int j = i + 1; j < s.length(); j++) {
-                String subString = s.substring(i, j);
-                if (isUnique(subString)) longest = Math.max(longest, j - i);
+        int len = s.length();
+        int longest = 0, i = 0, j = 0;
+        Set<Character> set = new HashSet<>();
+        while(i < len && j < len) {
+            // if the set doesn't not contain the character at index j
+            char current = s.charAt(j);
+            if(!set.contains(current)) {
+                //add the current character
+                set.add(current);
+                // increase window size to right
+                j++;
+                longest = Math.max(longest, j - i);
+            } else {
+                // decrease window size from left
+                set.remove(current);
+                i++;
             }
         }
         return longest;
-    }
-
-    public boolean isUnique(String subString) {
-        int[] characters = new int[256];
-        for(int i = 0; i < subString.length(); i++) {
-            int index = (int)subString.charAt(i);
-            if (characters[index] != 0) {
-                return false;
-            }
-            characters[index] = 1;
-        }
-        return true;
     }
 }
