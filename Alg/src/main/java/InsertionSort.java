@@ -4,6 +4,11 @@ public class InsertionSort {
   public InsertionSort() {
   }
 
+  interface Timer {
+      void takeTime()
+
+  }
+
   public static void main(String[] args) {
     // input  sequence of n numbers (a1, a2, ... a(n))
     // the numbers you want to sort are keys
