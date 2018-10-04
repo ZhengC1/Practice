@@ -1,22 +1,29 @@
-// worst case O(n)^2
+import java.util.*;
+// worst case O(n) ^ 2
 // best case O(n)
 public class BubbleSort extends SortParent {
     public static void main(String[] args) {
-        for(int i: ) {
-            System.out.println(i);
-        } 
+        BubbleSort bs = new BubbleSort();
+        bs.sort();
     }
-    public int[] main(String args[]) {
+
+    /**
+     * buble sort is n^2 at worst case
+     * then it's n in it's best case
+     */
+    public int[] sort() {
         int[] answers = numbers;
-        for (int i = 0; i <  numbers.length(); i++) {
-            for (int j = i + 1; j < numbers.length() - 1; j++) {
-                if (numbers[i] > numbers[j]) {
-                    int temp = numbers[i];
-                    numbers[i] = numbers[j];
-                    answers[j] = temp;
+        int n = numbers.length;
+        for (int i = 0; i <  n - 1; i++) {
+            for (int j = 0; j < n - i - 1; j++) {
+                if (numbers[j] > numbers[j + 1]) {
+                    int temp = numbers[j];
+                    numbers[j] = numbers[j + 1];
+                    numbers[j + 1] = temp;
+                    printArray();
                 }
             }
         }
-      return answers; 
+        return answers;
     }
 }
