@@ -1,0 +1,65 @@
+// Chun Zheng (984) 888-4044
+
+// This is an Interview, theres no way I would actually push this import to prod.
+import java.util.*;
+
+public class Interview {   
+
+    public static void main(String[] args) {
+        
+    }
+    
+    public int factorial(int num) {
+       // base case
+       if (num == 0) {
+           return 1;
+       }
+       return n * factorial(n-1);
+    }
+    
+    /*
+    Interview inte = new Interview();
+    Interview.factorial(12); 
+    */
+    
+    public static int factorial(int num) {
+        List<Integer> numbers = new Arraylist<>();
+        // ignore zero since you're multiplying by one anyway
+        for (int i = 1; i <= num; i++) {
+           numbers.add(i);
+        }
+        
+        int answers = 1;       
+        for (int j = 0; j < numbers.length; j++) {
+            answers = answers * numbers[j];
+        }
+        return answers;
+        // numbers.stream.map(n -> n -1) 
+    }
+}
+
+// return 2! = 2
+n! = n * (n-1) * (n-2) * ... * 1
+0! = 1
+---------------------------------------
+
+storeMessage(String msg)
+listMessagesSortedById()
+listMessagesSortedByDate()
+
+String msg = "
+Date: 15-DEC-2017 12:34:34
+Subject: Hello
+Message-ID: 3sdfsr3sfdfsdf
+
+Hi!
+";
+POST
+    enforce -> application/json
+    model the message to a object/class
+    { date: '', subject: '', message-id: '')
+    store in your collection. 
+    (s1, s2) -> s1.compareTo(s2)
+GET 
+
+GET
