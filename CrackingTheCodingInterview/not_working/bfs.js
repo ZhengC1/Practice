@@ -31,5 +31,14 @@ let map = mapGenerator(size);
 let visited = visitedBool(size);
 
 const bfs = (map, visited) => {
+    var queue = [this];
+    var start;
+    while queue.length > 0) {
+        start = queue.shift();
+        if (!n.left || !n.right) {
+            continue;
+        }
+        for (var i = 0; i < n.
+    }
 
 }
