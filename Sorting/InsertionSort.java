@@ -11,7 +11,7 @@ public class InsertionSort extends SortParent {
             int current_element = numbers[i];
             int j = i -1;
             // loops backwards and checks if the current index element is smaller than the ones before it.
-            while(j >= 0 && current_index < numbers[j]) {
+            while(j >= 0 && current_element < numbers[j]) {
                 // swapping
                 int temp = numbers[j];
                 numbers[j] = numbers[j + 1];
@@ -19,6 +19,6 @@ public class InsertionSort extends SortParent {
                 j--;
             }
         }
-        return list;
+        return numbers;
     }
 }
