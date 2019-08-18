@@ -16,10 +16,11 @@ def refib(n):
     andt ehn basically do the same recursive shit with the fib call
 """
 
-arr_num = [0, 0, 1]
+# None in the 0th index to denote that it's a 1 indexed array
+arr_num = [None, 0, 1]
 
 def memfib(num):
-    if num < 0:
+    if num < 1:
         print("whelp, that's not valid")
     if num < len(arr_num):
         return arr_num[num]
