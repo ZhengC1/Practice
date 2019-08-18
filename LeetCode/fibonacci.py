@@ -16,17 +16,16 @@ def refib(n):
     andt ehn basically do the same recursive shit with the fib call
 """
 
-arr_num = [0, 1]
+arr_num = [0, 0, 1]
 
 def memfib(num):
     if num < 0:
         print("whelp, that's not valid")
     if num < len(arr_num):
-        return arr_num[num - 1]
+        return arr_num[num]
     number = memfib(num - 1) + memfib(num - 2)
-    print(f'supposedly the number that was appended on {number}')
+    print(f"{number}")
     arr_num.append(number)
-    return arr_num[num - 1]
+    return arr_num[num]
 
 print(memfib(9))
-print(refib(9))
