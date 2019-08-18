@@ -25,7 +25,7 @@ class SudokuChecker():
 
     # take in a tuple of index
     def check_cols(self):
-        # contruct list from column indexes? 
+        # contruct list from column indexes?
         for i, num in enumerate(self.sudoku[0]):
             if self.has_duplicates([row[i] for row in self.sudoku]):
                 return False
