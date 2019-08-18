@@ -19,12 +19,22 @@ def non_for_loop_fizz_buzz(limit, current = None):
         num = current + 1
         return non_for_loop_fizz_buzz(limit, current = num)
 
+def fizz(num):
+    return num % 3 != 0 or print("fizz")
+
+def buzz(num):
+    return num % 5 == 0 and print("buzz")
+
+def fizzbuzz(num):
+    return num % 3 == 0 and num % 5 == 0 and print("fizzbuzz")
+
 def no_if_statements_fizz_buzz(limit, current):
     return current < limit \
-        and (((current % 3 == 0 and print("fizz")) \
-        or (current % 5 == 0 and print("buzz")) \
-        or ((current % 3 == 0 and current % 5 == 0) and print("fizzbuzz")) \
-        or print(current)) or no_if_statements_fizz_buzz(limit, current + 1 ))
+        and ((fizz(current)) \
+        or (buzz(current)) \
+        or fizzbuzz(current) \
+        or print(current)) or no_if_statements_fizz_buzz(limit, current + 1 )
+
 
 
 l = input("what would you like your limit to be: ")
