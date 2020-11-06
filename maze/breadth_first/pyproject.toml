@@ -6,6 +6,7 @@ authors = ["Chun Zheng <zhengc42@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
+pygame = "^2.0.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
