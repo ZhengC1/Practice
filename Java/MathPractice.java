@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 public class MathPractice {
     public static void main(String[] args) {
         doMath();
@@ -34,3 +35,10 @@ public class MathPractice {
     }
 
 }
+=======
+public class MathPractice {
+    public static void main(String[] args) {
+        System.out.println(9 + 9 + "9 + 9" + 9 + 9);
+    }
+} 
+>>>>>>> 5f1faee8c51c57b77e049db49373b650dfe69f60
