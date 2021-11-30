@@ -21,11 +21,26 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
         return size;
     }
 
+    private void resize() {
+        if (size == deck.length) {
+            Item[] temp = (Item[]) new Object[2 * deck.length];
+            for (int i = 0; i < size; i++) {
+                temp[i] = deck[i];
+            }
+            deck = temp;
+        }
+    }
+
     // add the item
     public void enqueue(Item item) {
         if (item == null) {
             throw new IllegalArgumentException("item is null");
         }
+        if (size == deck.length) {
+            resize();
+        }
+        deck[size] = item;
+        size++;
     }
 
     // remove and return a random item
@@ -35,11 +50,11 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
         }
         int randNum = StdRandom.uniform(size);
         Item rand = deck[randNum];
-
-        for (int i = randNum; i < size; i++) {
-            deck[i] = deck[i+1]
+        for (int i = randNum; i < size - 1; i++) {
+            deck[i] = deck[i+1];
         }
-        deck[size] = null;
+        deck[size - 1] = null;
+        size--;
         return rand;
     }
 
@@ -79,7 +94,21 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
 
     // unit testing (required)
     public static void main(String[] args) {
-
+        RandomizedQueue<String> testDeck = new RandomizedQueue<String>();
+        StdOut.println("isEmpty: " + testDeck.isEmpty());
+        testDeck.enqueue("Hello,");
+        testDeck.enqueue("Bar");
+        testDeck.enqueue("Foo");
+        testDeck.enqueue("World!");
+        Iterator itr = testDeck.iterator();
+        StdOut.print("[ ");
+        while (itr.hasNext()) {
+            StdOut.print(itr.next() + " ");
+        }
+        StdOut.println("]");
+        StdOut.println("dequeue : " + testDeck.dequeue());
+        StdOut.println("dequeue : " + testDeck.dequeue());
+        StdOut.println("the size: " + testDeck.size());
     }
 
 }

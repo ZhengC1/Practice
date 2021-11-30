@@ -51,7 +51,9 @@ public class Deque<Item> implements Iterable<Item> {
         if (item == null) {
             throw new IllegalArgumentException("item is null");
         }
-        resize();
+        if (size == deck.length) {
+            resize();
+        }
         deck[size] = item;
         size++;
     }
@@ -122,6 +124,7 @@ public class Deque<Item> implements Iterable<Item> {
         StdOut.println("]");
         StdOut.println("removeLast: " + testDeck.removeLast());
         StdOut.println("removeFirst: " + testDeck.removeFirst());
+        StdOut.println("the size: " + testDeck.size());
     }
 
 }
