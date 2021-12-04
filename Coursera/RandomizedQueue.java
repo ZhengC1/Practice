@@ -53,8 +53,10 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
         for (int i = randNum; i < size - 1; i++) {
             deck[i] = deck[i+1];
         }
-        deck[size - 1] = null;
         size--;
+        if (size > 1) {
+            deck[size] = null;
+        }
         return rand;
     }
 

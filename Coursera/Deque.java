@@ -64,11 +64,13 @@ public class Deque<Item> implements Iterable<Item> {
             throw new java.util.NoSuchElementException("Deque is empty");
         }
         Item first = deck[0];
-        for (int i = 1; i < size; i++) {
-            deck[i - 1] = deck[i];
+        for (int i = 0; i < size - 1; i++) {
+            deck[i] = deck[i + 1];
         }
-        deck[size] = null;
         size--;
+        if (size > 1) {
+            deck[size] = null;
+        }
         return first;
     }
 
@@ -110,19 +112,17 @@ public class Deque<Item> implements Iterable<Item> {
     
     // unit testing (required)
     public static void main(String[] args) {
-        Deque<String> testDeck = new Deque<String>();
+        Deque<Integer> testDeck = new Deque<Integer>();
         StdOut.println("isEmpty: " + testDeck.isEmpty());
-        testDeck.addFirst("Hello,");
-        testDeck.addFirst("Bar");
-        testDeck.addFirst("Foo");
-        testDeck.addLast("World!");
+        StdOut.println("addFirst: ");
+        testDeck.addFirst(6);
+        testDeck.addFirst(7);
         Iterator itr = testDeck.iterator();
         StdOut.print("[ ");
         while (itr.hasNext()) {
             StdOut.print(itr.next() + " ");
         }
         StdOut.println("]");
-        StdOut.println("removeLast: " + testDeck.removeLast());
         StdOut.println("removeFirst: " + testDeck.removeFirst());
         StdOut.println("the size: " + testDeck.size());
     }
